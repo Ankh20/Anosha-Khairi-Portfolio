@@ -82,7 +82,7 @@
 
 					var	$this = $(this),
 						id = $this.attr('href'),
-						$section = $(id);
+						$section = id && id.charAt(0) === '#' ? $(id) : $();
 
 					// No section for this link? Bail.
 						if ($section.length < 1)
@@ -124,7 +124,7 @@
 		// Title Bar.
 			$titleBar = $(
 				'<div id="titleBar">' +
-					'<a href="#header" class="toggle"></a>' +
+					'<a href="#header" class="toggle" aria-label="Open navigation"></a>' +
 					'<span class="title">' + $('#logo').html() + '</span>' +
 				'</div>'
 			)
